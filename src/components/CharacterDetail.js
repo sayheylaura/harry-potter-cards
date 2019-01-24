@@ -23,34 +23,34 @@ class CharacterDetail extends Component {
         {isFetching ? (
           <Loader />
         ) : (
-          <div className="detail-wrapper">
-            <img className="character__image--detail" src={image} alt={name} />
-            <h2 className="character__name--detail">{name}</h2>
-            <ul className="character__info">
-              <li className="character__info-item">House: {house}</li>
-              <li className="character__info-item">
-                Year of birth:
+            <div className="detail-wrapper">
+              <img className="character__image--detail" src={image} alt={name} />
+              <h2 className="character__name--detail">{name}</h2>
+              <ul className="character__info">
+                <li className="character__info-item">House: {house}</li>
+                <li className="character__info-item">
+                  Year of birth:
                 {yearOfBirth ? (
-                  <span>{` ${yearOfBirth}`}</span>
-                ) : (
-                  <span> no information available</span>
-                )}
-              </li>
-              <li className="character__info-item">
-                Patronus:
+                    <span>{` ${yearOfBirth}`}</span>
+                  ) : (
+                      <span> no information available</span>
+                    )}
+                </li>
+                <li className="character__info-item">
+                  Patronus:
                 {patronus ? (
-                  <span>{` ${patronus}`}</span>
-                ) : (
-                  <span> no information available</span>
-                )}
-              </li>
-              <li className="character__info-item">
-                Status: {alive ? <span>alive</span> : <span>dead</span>}
-              </li>
-            </ul>
-            <GoBack />
-          </div>
-        )}
+                    <span>{` ${patronus}`}</span>
+                  ) : (
+                      <span> no information available</span>
+                    )}
+                </li>
+                <li className="character__info-item">
+                  Status: {alive ? <span>alive</span> : <span>dead</span>}
+                </li>
+              </ul>
+              <GoBack />
+            </div>
+          )}
       </div>
     );
   }
