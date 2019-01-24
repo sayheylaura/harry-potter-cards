@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 class CharacterCard extends Component {
-
   render() {
     const { image, name, house } = this.props;
     return (

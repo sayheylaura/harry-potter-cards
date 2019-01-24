@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { fetchCharacters } from "../services/characterService";
 import uniqueId from "lodash.uniqueid";
-import Filter from "./Filter";
+import Header from './Header';
 import CharacterList from "./CharacterList";
 import "./App.scss";
 
@@ -49,14 +49,11 @@ class App extends Component {
     const filteredCharacters = this.filterByName();
     return (
       <div className="app">
-        <header className="app__header">
-          <h1 className="app__title">Harry Potter Characters</h1>
 
-          <Filter
-            userQuery={userQuery}
-            handleInputChange={this.handleInputChange}
-          />
-        </header>
+        <Header
+          userQuery={userQuery}
+          handleInputChange={this.handleInputChange}
+        />
 
         <main className="app__main">
           <CharacterList filteredCharacters={filteredCharacters} />
