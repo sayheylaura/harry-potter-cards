@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { fetchCharacters } from '../services/characterService';
-import uniqueId from 'lodash.uniqueid';
-import Filter from './Filter';
-import './App.scss';
+import React, { Component } from "react";
+import { fetchCharacters } from "../services/characterService";
+import uniqueId from "lodash.uniqueid";
+import Filter from "./Filter";
+import CharacterList from "./CharacterList";
+import "./App.scss";
 
 class App extends Component {
   constructor(props) {
@@ -11,24 +12,22 @@ class App extends Component {
     this.state = {
       characters: [],
       userQuery: ""
-    }
+    };
 
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   componentDidMount() {
-    fetchCharacters()
-      .then(data => {
-        const dataWithId = data
-          .map(item => {
-            return {
-              ...item,
-              id: uniqueId()
-            }
-          })
+    fetchCharacters().then(data => {
+      const dataWithId = data.map(item => {
+        return {
+          ...item,
+          id: uniqueId()
+        };
+      });
 
-        this.setState({ characters: dataWithId });
-      })
+      this.setState({ characters: dataWithId });
+    });
   }
 
   handleInputChange(event) {
@@ -38,11 +37,10 @@ class App extends Component {
 
   filterByName() {
     const { characters, userQuery } = this.state;
-    const filteredCharacters = characters
-      .filter(character => {
-        const characterName = character.name.toLowerCase();
-        return !userQuery || characterName.includes(userQuery.toLowerCase());
-      })
+    const filteredCharacters = characters.filter(character => {
+      const characterName = character.name.toLowerCase();
+      return !userQuery || characterName.includes(userQuery.toLowerCase());
+    });
     return filteredCharacters;
   }
 
@@ -54,22 +52,14 @@ class App extends Component {
         <header className="app__header">
           <h1 className="app__title">Harry Potter Characters</h1>
 
-          <Filter userQuery={userQuery} handleInputChange={this.handleInputChange} />
+          <Filter
+            userQuery={userQuery}
+            handleInputChange={this.handleInputChange}
+          />
         </header>
 
         <main className="app__main">
-          <ul className="app__character-list">
-            {filteredCharacters.map(character => {
-              const { id, image, name, house } = character;
-              return (
-                <li className="app__character-card" key={id}>
-                  <img className="character__image" src={image} alt={name} />
-                  <h2 className="character__name">{name}</h2>
-                  <p className="character__house">{house}</p>
-                </li>
-              );
-            })}
-          </ul>
+          <CharacterList filteredCharacters={filteredCharacters} />
         </main>
       </div>
     );
