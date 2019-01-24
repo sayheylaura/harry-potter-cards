@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import CharacterCard from "./CharacterCard";
 
 class CharacterList extends Component {
   render() {
@@ -10,9 +11,7 @@ class CharacterList extends Component {
           const { id, image, name, house } = character;
           return (
             <li className="app__character-card" key={id}>
-              <img className="character__image" src={image} alt={name} />
-              <h2 className="character__name">{name}</h2>
-              <p className="character__house">{house}</p>
+              <CharacterCard image={image} name={name} house={house} />
             </li>
           );
         })}
@@ -30,6 +29,6 @@ CharacterList.propTypes = {
       house: PropTypes.string.isRequired
     }).isRequired
   ).isRequired
-}
+};
 
 export default CharacterList;
