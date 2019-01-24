@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {fetchCharacters} from '../services/characterService';
+import { fetchCharacters } from '../services/characterService';
 import './App.scss';
 
 class App extends Component {
@@ -14,12 +14,12 @@ class App extends Component {
   componentDidMount() {
     fetchCharacters()
       .then(data => {
-        this.setState({characters: data});
+        this.setState({ characters: data });
       })
   }
 
   render() {
-    const {characters} = this.state;
+    const { characters } = this.state;
     return (
       <div className="app">
         <header className="app__header">
@@ -29,7 +29,14 @@ class App extends Component {
         <main className="app__main">
           <ul className="app__character-list">
             {characters.map(character => {
-              return <div>{character.name}</div>
+              const { image, name, house } = character;
+              return (
+                <li className="app__character-card">
+                  <img className="character__image" src={image} alt={name}/>
+                  <h2 className="character__name">{name}</h2>
+                  <p className="character__house">{house}</p>
+                </li>
+              );
             })}
           </ul>
         </main>
