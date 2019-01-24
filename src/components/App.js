@@ -35,8 +35,19 @@ class App extends Component {
     this.setState({userQuery: currentQuery});
   }
 
+  filterByName() {
+    const {characters, userQuery} = this.state;
+    const filteredCharacters = characters
+      .filter(character => {
+        const characterName = character.name.toLowerCase();
+        return !userQuery || characterName.includes(userQuery.toLowerCase());
+      })
+    return filteredCharacters;
+  }
+
   render() {
     const { characters, userQuery } = this.state;
+    const filteredCharacters = this.filterByName();
     return (
       <div className="app">
         <header className="app__header">
@@ -52,7 +63,7 @@ class App extends Component {
 
         <main className="app__main">
           <ul className="app__character-list">
-            {characters.map(character => {
+            {filteredCharacters.map(character => {
               const { id, image, name, house } = character;
               return (
                 <li className="app__character-card" key={id}>
