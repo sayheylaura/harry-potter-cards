@@ -6,7 +6,7 @@ import CharacterDetail from "./CharacterDetail";
 
 class Main extends Component {
   render() {
-    const { characters, filteredCharacters } = this.props;
+    const { isFetching, characters, filteredCharacters } = this.props;
     return (
       <main className="app__main">
         <Switch>
@@ -21,14 +21,11 @@ class Main extends Component {
           <Route
             path="/character/:id"
             render={props => {
-              const detailId = this.props.match.params.id;
-              const selectedCharacter = characters.find(
-                character => character.id === parseInt(detailId)
-              );
               return (
                 <CharacterDetail
                   match={props.match}
-                  selectedCharacter={selectedCharacter}
+                  isFetching={isFetching}
+                  characters={characters}
                 />
               );
             }}
@@ -40,6 +37,7 @@ class Main extends Component {
 }
 
 Main.propTypes = {
+  isFetching: PropTypes.bool.isRequired,
   characters: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,

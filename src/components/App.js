@@ -3,6 +3,7 @@ import { fetchCharacters } from "../services/characterService";
 import uniqueId from "lodash.uniqueid";
 import Header from "./Header";
 import Main from "./Main";
+import Loader from "./Loader";
 import "./App.scss";
 
 class App extends Component {
@@ -11,7 +12,8 @@ class App extends Component {
 
     this.state = {
       characters: [],
-      userQuery: ""
+      userQuery: "",
+      isFetching: true
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -26,7 +28,10 @@ class App extends Component {
         };
       });
 
-      this.setState({ characters: dataWithId });
+      this.setState({
+        characters: dataWithId,
+        isFetching: false
+      });
     });
   }
 
@@ -45,7 +50,7 @@ class App extends Component {
   }
 
   render() {
-    const { characters, userQuery } = this.state;
+    const { characters, userQuery, isFetching } = this.state;
     const filteredCharacters = this.filterByName();
     return (
       <div className="app">
@@ -54,10 +59,15 @@ class App extends Component {
           handleInputChange={this.handleInputChange}
         />
 
-        <Main
-          characters={characters}
-          filteredCharacters={filteredCharacters}
-        />
+        {isFetching ? (
+          <Loader />
+        ) : (
+          <Main
+            isFetching={isFetching}
+            characters={characters}
+            filteredCharacters={filteredCharacters}
+          />
+        )}
       </div>
     );
   }
