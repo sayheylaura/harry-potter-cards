@@ -8,8 +8,11 @@ class App extends Component {
     super(props);
 
     this.state = {
-      characters: []
+      characters: [],
+      userQuery: ""
     }
+
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   componentDidMount() {
@@ -27,8 +30,13 @@ class App extends Component {
       })
   }
 
+  handleInputChange(event) {
+    const currentQuery = event.currentTarget.value;
+    this.setState({userQuery: currentQuery});
+  }
+
   render() {
-    const { characters } = this.state;
+    const { characters, userQuery } = this.state;
     return (
       <div className="app">
         <header className="app__header">
@@ -37,7 +45,7 @@ class App extends Component {
           <form className="app__form">
             <label htmlFor="character-name" className="character-name__label">
             Write your favourite character's name!
-              <input type="text" name="character-name" id="character-name" className="character-name__input" placeholder="Ex. Sirius Black" />
+              <input type="text" name="character-name" id="character-name" value={userQuery} className="character-name__input" placeholder="Ex. Sirius Black" onChange={this.handleInputChange} />
             </label>
           </form>
         </header>
