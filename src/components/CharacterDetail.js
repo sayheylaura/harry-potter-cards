@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Loader from "./Loader";
+import GoBack from "./GoBack";
 
 class CharacterDetail extends Component {
   render() {
@@ -47,6 +48,7 @@ class CharacterDetail extends Component {
                 Status: {alive ? <span>alive</span> : <span>dead</span>}
               </li>
             </ul>
+            <GoBack />
           </div>
         )}
       </div>
@@ -66,7 +68,10 @@ CharacterDetail.propTypes = {
       id: PropTypes.string.isRequired,
       image: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      house: PropTypes.string.isRequired
+      house: PropTypes.string.isRequired,
+      yearOfBirth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      patronus: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      alive: PropTypes.bool.isRequired
     }).isRequired
   ).isRequired
 };
