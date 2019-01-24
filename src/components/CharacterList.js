@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import CharacterCard from "./CharacterCard";
 
 class CharacterList extends Component {
@@ -10,9 +11,11 @@ class CharacterList extends Component {
         {filteredCharacters.map(character => {
           const { id, image, name, house } = character;
           return (
-            <li className="app__character-card" key={id}>
-              <CharacterCard image={image} name={name} house={house} />
-            </li>
+            <Link to={`/character/${id}`} key={id}>
+              <li className="app__character-card">
+                <CharacterCard image={image} name={name} house={house} />
+              </li>
+            </Link>
           );
         })}
       </ul>

@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { Route, Switch } from "react-router-dom";
 import Filter from "./Filter";
 
 class Header extends Component {
@@ -9,10 +10,18 @@ class Header extends Component {
       <header className="app__header">
         <h1 className="app__title">Harry Potter Characters</h1>
 
-        <Filter
-          userQuery={userQuery}
-          handleInputChange={handleInputChange}
-        />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <Filter
+                userQuery={userQuery}
+                handleInputChange={handleInputChange}
+              />
+            )}
+          />
+        </Switch>
       </header>
     );
   }
@@ -21,6 +30,6 @@ class Header extends Component {
 Header.propTypes = {
   userQuery: PropTypes.string.isRequired,
   handleInputChange: PropTypes.func.isRequired
-}
+};
 
 export default Header;

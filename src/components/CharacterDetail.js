@@ -3,7 +3,14 @@ import PropTypes from "prop-types";
 
 class CharacterDetail extends Component {
   render() {
-    const { image, name, house, yearOfBirth, patronus, alive } = this.props;
+    const {
+      image,
+      name,
+      house,
+      yearOfBirth,
+      patronus,
+      alive
+    } = this.props.selectedCharacter;
     return (
       <div className="app__character-detail">
         <img className="character__image--detail" src={image} alt={name} />
@@ -20,6 +27,13 @@ class CharacterDetail extends Component {
   }
 }
 
-
+CharacterDetail.propTypes = {
+  match: PropTypes.object,
+  selectedCharacter: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    house: PropTypes.string.isRequired
+  }).isRequired
+};
 
 export default CharacterDetail;

@@ -54,7 +54,10 @@ class App extends Component {
           handleInputChange={this.handleInputChange}
         />
 
-        <Main filteredCharacters={filteredCharacters} />
+        <Main
+          characters={characters}
+          filteredCharacters={filteredCharacters}
+        />
       </div>
     );
   }
