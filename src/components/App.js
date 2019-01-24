@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { fetchCharacters } from "../services/characterService";
 import uniqueId from "lodash.uniqueid";
-import Header from './Header';
-import CharacterList from "./CharacterList";
+import Header from "./Header";
+import Main from "./Main";
 import "./App.scss";
 
 class App extends Component {
@@ -49,15 +49,12 @@ class App extends Component {
     const filteredCharacters = this.filterByName();
     return (
       <div className="app">
-
         <Header
           userQuery={userQuery}
           handleInputChange={this.handleInputChange}
         />
 
-        <main className="app__main">
-          <CharacterList filteredCharacters={filteredCharacters} />
-        </main>
+        <Main filteredCharacters={filteredCharacters} />
       </div>
     );
   }
