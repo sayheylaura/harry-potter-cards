@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { fetchCharacters } from '../services/characterService';
+import uniqueId from 'lodash.uniqueid';
 import './App.scss';
 
 class App extends Component {
@@ -14,7 +15,15 @@ class App extends Component {
   componentDidMount() {
     fetchCharacters()
       .then(data => {
-        this.setState({ characters: data });
+        const dataWithId = data
+          .map(item => {
+            return {
+              ...item,
+              id: uniqueId()
+            }
+          })
+
+        this.setState({ characters: dataWithId });
       })
   }
 
@@ -29,10 +38,10 @@ class App extends Component {
         <main className="app__main">
           <ul className="app__character-list">
             {characters.map(character => {
-              const { image, name, house } = character;
+              const { id, image, name, house } = character;
               return (
-                <li className="app__character-card">
-                  <img className="character__image" src={image} alt={name}/>
+                <li className="app__character-card" key={id}>
+                  <img className="character__image" src={image} alt={name} />
                   <h2 className="character__name">{name}</h2>
                   <p className="character__house">{house}</p>
                 </li>
