@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component, Fragment } from "react";
+import PropTypes from "prop-types";
 
 class CharacterCard extends Component {
   render() {
@@ -18,6 +18,6 @@ CharacterCard.propTypes = {
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   house: PropTypes.string.isRequired
-}
+};
 
 export default CharacterCard;
