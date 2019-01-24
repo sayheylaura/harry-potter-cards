@@ -4,7 +4,6 @@ import Loader from "./Loader";
 
 class CharacterDetail extends Component {
   render() {
-    console.log(this.props);
     const { match, isFetching, characters } = this.props;
     const selectedId = match.params.id;
     const selectedCharacter = characters.find(
@@ -27,10 +26,26 @@ class CharacterDetail extends Component {
             <img className="character__image--detail" src={image} alt={name} />
             <h2 className="character__name--detail">{name}</h2>
             <ul className="character__info">
-              <li className="character__info-item">{house}</li>
-              <li className="character__info-item">{yearOfBirth}</li>
-              <li className="character__info-item">{patronus}</li>
-              <li className="character__info-item">{alive}</li>
+              <li className="character__info-item">House: {house}</li>
+              <li className="character__info-item">
+                Year of birth:
+                {yearOfBirth ? (
+                  <span>{` ${yearOfBirth}`}</span>
+                ) : (
+                  <span> no information available</span>
+                )}
+              </li>
+              <li className="character__info-item">
+                Patronus:
+                {patronus ? (
+                  <span>{` ${patronus}`}</span>
+                ) : (
+                  <span> no information available</span>
+                )}
+              </li>
+              <li className="character__info-item">
+                Status: {alive ? <span>alive</span> : <span>dead</span>}
+              </li>
             </ul>
           </div>
         )}
