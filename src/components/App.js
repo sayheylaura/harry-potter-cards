@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { fetchCharacters } from '../services/characterService';
 import uniqueId from 'lodash.uniqueid';
+import Filter from './Filter';
 import './App.scss';
 
 class App extends Component {
@@ -32,11 +33,11 @@ class App extends Component {
 
   handleInputChange(event) {
     const currentQuery = event.currentTarget.value;
-    this.setState({userQuery: currentQuery});
+    this.setState({ userQuery: currentQuery });
   }
 
   filterByName() {
-    const {characters, userQuery} = this.state;
+    const { characters, userQuery } = this.state;
     const filteredCharacters = characters
       .filter(character => {
         const characterName = character.name.toLowerCase();
@@ -53,12 +54,7 @@ class App extends Component {
         <header className="app__header">
           <h1 className="app__title">Harry Potter Characters</h1>
 
-          <form className="app__form">
-            <label htmlFor="character-name" className="character-name__label">
-            Write your favourite character's name!
-              <input type="text" name="character-name" id="character-name" value={userQuery} className="character-name__input" placeholder="Ex. Sirius Black" onChange={this.handleInputChange} />
-            </label>
-          </form>
+          <Filter userQuery={userQuery} handleInputChange={this.handleInputChange} />
         </header>
 
         <main className="app__main">
