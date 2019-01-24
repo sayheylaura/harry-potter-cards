@@ -33,6 +33,13 @@ class App extends Component {
       <div className="app">
         <header className="app__header">
           <h1 className="app__title">Harry Potter Characters</h1>
+
+          <form className="app__form">
+            <label htmlFor="character-name" className="character-name__label">
+            Write your favourite character's name!
+              <input type="text" name="character-name" id="character-name" className="character-name__input" placeholder="Ex. Sirius Black" />
+            </label>
+          </form>
         </header>
 
         <main className="app__main">
