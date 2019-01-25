@@ -3,8 +3,8 @@ import { fetchCharacters } from "../services/characterService";
 import uniqueId from "lodash.uniqueid";
 import Header from "./Header";
 import Main from "./Main";
-import Footer from './Footer';
-import "./App.scss";
+import Footer from "./Footer";
+import "./app.scss";
 
 class App extends Component {
   constructor(props) {

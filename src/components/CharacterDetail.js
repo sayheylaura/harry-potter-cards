@@ -24,8 +24,16 @@ class CharacterDetail extends Component {
         {isFetching ? (
           <Loader />
         ) : (
-            <Fragment>
-              <img className="character__image--detail" src={image} alt={name} />
+          <Fragment>
+            <GoBack />
+            <div className="detail-wrapper">
+              <div className="character__image-wrapper--detail">
+                <img
+                  className="character__image--detail"
+                  src={image}
+                  alt={name}
+                />
+              </div>
               <h2 className="character__name--detail">{name}</h2>
               <ul className="character__info">
                 <li className="character__info-item">
@@ -33,39 +41,39 @@ class CharacterDetail extends Component {
                   {house ? (
                     <span>{` ${house}`}</span>
                   ) : (
-                      <span> no information available</span>
-                    )}
+                    <span> no information available</span>
+                  )}
                 </li>
                 <li className="character__info-item">
                   Year of birth:
-                {yearOfBirth ? (
+                  {yearOfBirth ? (
                     <span>{` ${yearOfBirth}`}</span>
                   ) : (
-                      <span> no information available</span>
-                    )}
+                    <span> no information available</span>
+                  )}
                 </li>
                 <li className="character__info-item">
                   Patronus:
-                {patronus ? (
+                  {patronus ? (
                     <span>{` ${patronus}`}</span>
                   ) : (
-                      <span> no information available</span>
-                    )}
+                    <span> no information available</span>
+                  )}
                 </li>
                 <li className="character__info-item">
                   Status:{" "}
                   {alive ? (
                     <span>alive</span>
                   ) : (
-                      <span>
-                        <i class="fas fa-skull" />
-                      </span>
-                    )}
+                    <span>
+                      <i class="fas fa-skull" />
+                    </span>
+                  )}
                 </li>
               </ul>
-              <GoBack />
-            </Fragment>
-          )}
+            </div>
+          </Fragment>
+        )}
       </div>
     );
   }

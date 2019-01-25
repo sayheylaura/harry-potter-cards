@@ -1,6 +1,11 @@
 .app__character-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detail-wrapper {
   width: 200px;
-  height: 360px;
   padding: 15px;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.26);
@@ -8,6 +13,22 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
+}
+
+.character__image-wrapper--detail {
+  width: 170px;
+  height: 240px;
+}
+
+.character__image--detail {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.character__name--detail {
+  margin: 10px 0;
 }
 
 .character__info {

@@ -4,40 +4,39 @@ import { Route, Switch } from "react-router-dom";
 import Loader from "./Loader";
 import CharacterList from "./CharacterList";
 import CharacterDetail from "./CharacterDetail";
-import './main.scss';
+import "./main.scss";
 
 class Main extends Component {
   render() {
     const { isFetching, characters, filteredCharacters } = this.props;
     return (
       <main className="app__main">
-
         {isFetching ? (
           <Loader />
         ) : (
-            <Switch>
-              <Route
-                exact
-                path="/"
-                render={() => (
-                  <CharacterList filteredCharacters={filteredCharacters} />
-                )}
-              />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={() => (
+                <CharacterList filteredCharacters={filteredCharacters} />
+              )}
+            />
 
-              <Route
-                path="/character/:id"
-                render={props => {
-                  return (
-                    <CharacterDetail
-                      match={props.match}
-                      isFetching={isFetching}
-                      characters={characters}
-                    />
-                  );
-                }}
-              />
-            </Switch>
-          )}
+            <Route
+              path="/character/:id"
+              render={props => {
+                return (
+                  <CharacterDetail
+                    match={props.match}
+                    isFetching={isFetching}
+                    characters={characters}
+                  />
+                );
+              }}
+            />
+          </Switch>
+        )}
       </main>
     );
   }

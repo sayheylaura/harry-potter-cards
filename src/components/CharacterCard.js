@@ -11,11 +11,9 @@ class CharacterCard extends Component {
           <img className="character__image" src={image} alt={name} />
         </div>
         <h2 className="character__name">{name}</h2>
-        <p className="character__house">{house ? (
-          <span>{house}</span>
-        ) : (
-            <span>No house</span>
-          )}</p>
+        <p className="character__house">
+          {house ? <span>{house}</span> : <span>No house</span>}
+        </p>
       </Fragment>
     );
   }

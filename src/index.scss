@@ -7,8 +7,9 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  font-family: 'Kranky', cursive;
-
+  font-family: "Kranky", cursive;
+  font-size: 16px;
+  font-weight: 400;
   background: linear-gradient(132deg, #ec5218, #1665c1);
   background-size: 400% 400%;
   animation: BackgroundGradient 5s ease infinite;
@@ -20,7 +21,13 @@ body {
 }
 
 @keyframes BackgroundGradient {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
