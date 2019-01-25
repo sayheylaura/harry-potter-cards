@@ -1,6 +1,7 @@
 .app__header {
-  height: 220px;
+  height: 40vh;
   padding: 10px;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

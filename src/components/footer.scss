@@ -1,0 +1,14 @@
+.app__footer {
+  height: 10vh;
+  background-color: rgba(0, 0, 0, 0.26);
+  color: white;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.copyright__link {
+  color: rgb(199, 84, 84);
+  text-decoration: none;
+}

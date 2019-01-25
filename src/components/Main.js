@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Route, Switch } from "react-router-dom";
 import CharacterList from "./CharacterList";
 import CharacterDetail from "./CharacterDetail";
+import './main.scss';
 
 class Main extends Component {
   render() {
