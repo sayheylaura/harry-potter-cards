@@ -14,6 +14,8 @@ class Footer extends Component {
           <a
             className="copyright__link"
             href="https://github.com/lauraferrandof"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             laus
           </a>

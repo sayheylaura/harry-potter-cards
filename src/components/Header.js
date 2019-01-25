@@ -9,7 +9,9 @@ class Header extends Component {
     const { userQuery, handleInputChange } = this.props;
     return (
       <header className="app__header">
-        <h1 className="app__title">Harry Potter Characters</h1>
+        <div className="app__title-wrapper">
+          <h1 className="app__title">Harry Potter Characters</h1>
+        </div>
 
         <Switch>
           <Route

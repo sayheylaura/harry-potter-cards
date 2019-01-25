@@ -1,6 +1,6 @@
 .app__header {
-  height: 40vh;
-  padding: 10px;
+  height: 45vh;
+  padding: 20px 10px 10px 10px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -9,9 +9,18 @@
 
   @media all and (min-width: 768px) {
     align-items: center;
+    justify-content: space-evenly;
   }
 }
 
+.app__title-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .app__title {
+  max-width: 300px;
   margin: 0;
+  font-size: 40px;
 }
