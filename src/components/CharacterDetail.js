@@ -27,7 +27,11 @@ class CharacterDetail extends Component {
               <img className="character__image--detail" src={image} alt={name} />
               <h2 className="character__name--detail">{name}</h2>
               <ul className="character__info">
-                <li className="character__info-item">House: {house}</li>
+                <li className="character__info-item">House: {house ? (
+                  <span>{` ${house}`}</span>
+                ) : (
+                    <span> no information available</span>
+                  )}</li>
                 <li className="character__info-item">
                   Year of birth:
                 {yearOfBirth ? (
@@ -45,7 +49,7 @@ class CharacterDetail extends Component {
                     )}
                 </li>
                 <li className="character__info-item">
-                  Status: {alive ? <span>alive</span> : <span>dead</span>}
+                  Status: {alive ? <span>alive</span> : <span><i class="fas fa-skull"></i></span>}
                 </li>
               </ul>
               <GoBack />

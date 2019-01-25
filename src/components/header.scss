@@ -1,0 +1,16 @@
+.app__header {
+  height: 220px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: stretch;
+
+  @media all and (min-width: 768px) {
+    align-items: center;
+  }
+}
+
+.app__title {
+  margin: 0;
+}

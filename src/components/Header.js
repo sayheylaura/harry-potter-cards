@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Route, Switch } from "react-router-dom";
 import Filter from "./Filter";
+import './header.scss';
 
 class Header extends Component {
   render() {
