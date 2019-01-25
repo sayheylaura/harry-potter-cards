@@ -1,3 +1,11 @@
+# Mid-term evaluation exercise for the third sprint in Adalab
+
+This is a final evaluation exercise for the third sprint in [Adalab](https://adalab.es/). The main goal of this exercise was to self-assess my knowledge and skills in basic React after two weeks learning to use this framework.
+
+I intend to update this work whenever I learn some new programming skills!
+
+# How to use this repository
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
