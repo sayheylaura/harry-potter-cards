@@ -6,7 +6,7 @@ import "./header.scss";
 
 class Header extends Component {
   render() {
-    const { userQuery, handleInputChange } = this.props;
+    const { userQuery, handleInputChange, userQueryHouse, handleHouseChange } = this.props;
     return (
       <header className="app__header">
         <div className="app__title-wrapper">
@@ -20,7 +20,9 @@ class Header extends Component {
             render={() => (
               <Filter
                 userQuery={userQuery}
+                userQueryHouse={userQueryHouse}
                 handleInputChange={handleInputChange}
+                handleHouseChange={handleHouseChange}
               />
             )}
           />
@@ -32,7 +34,9 @@ class Header extends Component {
 
 Header.propTypes = {
   userQuery: PropTypes.string.isRequired,
-  handleInputChange: PropTypes.func.isRequired
+  handleInputChange: PropTypes.func.isRequired,
+  userQueryHouse: PropTypes.string.isRequired,
+  handleHouseChange: PropTypes.func.isRequired
 };
 
 export default Header;

@@ -4,7 +4,7 @@ import "./filter.scss";
 
 class Filter extends Component {
   render() {
-    const { userQuery, handleInputChange } = this.props;
+    const { userQuery, handleInputChange, userQueryHouse, handleHouseChange } = this.props;
     return (
       <form className="app__form">
         <label htmlFor="character-name" className="character-name__label">
@@ -19,6 +19,18 @@ class Filter extends Component {
             onChange={handleInputChange}
           />
         </label>
+        <label htmlFor="character-house">
+          Write your character's house!
+          <input
+          type="text"
+          name="character-house"
+          id="character-house"
+          value={userQueryHouse}
+          className="character-house"
+          placeholder="Ex: Gryffindor"
+          onChange={handleHouseChange}
+          />
+        </label>
       </form>
     );
   }
@@ -26,7 +38,9 @@ class Filter extends Component {
 
 Filter.propTypes = {
   userQuery: PropTypes.string.isRequired,
-  handleInputChange: PropTypes.func.isRequired
+  handleInputChange: PropTypes.func.isRequired,
+  userQueryHouse: PropTypes.string.isRequired,
+  handleHouseChange: PropTypes.func.isRequired
 };
 
 export default Filter;

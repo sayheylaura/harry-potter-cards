@@ -13,10 +13,12 @@ class App extends Component {
     this.state = {
       characters: [],
       userQuery: "",
+      userQueryHouse: "",
       isFetching: true
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleHouseChange = this.handleHouseChange.bind(this);
   }
 
   componentDidMount() {
@@ -40,6 +42,33 @@ class App extends Component {
     this.setState({ userQuery: currentQuery });
   }
 
+  handleHouseChange(event) {
+    const currentHouseQuery = event.currentTarget.value;
+    this.setState({userQueryHouse: currentHouseQuery});
+  }
+
+  filterByHouse() {
+    const {characters, userQueryHouse} = this.state;
+
+    let filteredCharacters;
+
+    if(userQueryHouse === "no") {
+      filteredCharacters = characters.filter(character => {
+        return character.house === ""
+      })
+    } else {
+      filteredCharacters = characters.filter(character => {
+        const characterHouse = character.house.toLowerCase();
+        if(!userQueryHouse || characterHouse.includes(userQueryHouse.toLowerCase())) {
+          return true;
+        } else {
+          return false;
+        }
+      })
+    }
+    return filteredCharacters;
+  }
+
   filterByName() {
     const { characters, userQuery } = this.state;
     const filteredCharacters = characters.filter(character => {
@@ -50,13 +79,15 @@ class App extends Component {
   }
 
   render() {
-    const { characters, userQuery, isFetching } = this.state;
-    const filteredCharacters = this.filterByName();
+    const { characters, userQuery, isFetching, userQueryHouse } = this.state;
+    const filteredCharacters = this.filterByHouse();
     return (
       <div className="app">
         <Header
           userQuery={userQuery}
+          userQueryHouse={userQueryHouse}
           handleInputChange={this.handleInputChange}
+          handleHouseChange={this.handleHouseChange}
         />
 
         <Main
